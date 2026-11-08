@@ -1,0 +1,166 @@
+<!DOCTYPE HTML>
+<!--
+	Strongly Typed by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Robin Ericsson - Engine</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="icon" href="images/icon.png">
+	</head>
+	<body class="no-sidebar is-preload">
+		<div id="page-wrapper">
+			<!-- The Modal -->
+			<div id="myModal" class="modal">
+				<img class="modal-content" id="img01">
+				<div id="caption"></div>
+			</div>
+			
+			<!-- Header -->
+			<section id="header">
+				<div class="container">
+					<!-- Nav -->
+					<nav id="nav">
+						<ul>
+							<li>
+								<a href="#" class="icon fa-gamepad"><span>Games</span></a>
+								<ul>
+									<li><a href="Bloodhunt">Bloodhunt</a></li>
+									<li><a href="Exoborne">Exoborne</a></li>
+								</ul>
+							</li>
+							<li><a class="icon fa-cog" href="Engine"><span>Engine</span></a></li>
+							<li>
+								<a href="#" class="icon fa-graduation-cap"><span>School Projects</span></a>
+								<ul>
+									<li><a href="ComponentSystem">Component System</a></li>
+									<li><a href="AbilitySystem">Ability System</a></li>
+									<li><a href="Ohtili">Spite - Ohtili's Ascension</a></li>
+									<li><a href="Aphelion">Aphelion</a></li>
+									<li><a href="Swarm">Swarm</a></li>
+									<li><a href="Witchcat">The Witchcat Adventure</a></li>
+									<li><a href="FairyEscape">The Fairy Escape</a></li>
+									<li><a href="Mayday">Mayday</a></li>
+								</ul>
+							</li>
+							<li><a class="icon fa-plus-circle" href="Other"><span>Other</span></a></li>
+							<li><a class="icon fa-user" href="About"><span>About Me</span></a></li>
+						</ul>
+					</nav>
+					<!-- Logo -->
+					<h1 id="logo"><a href="./">Robin Ericsson</a></h1>
+					<p>Gameplay/System Programmer</p>
+				</div>
+			</section>
+
+			<!-- Main -->
+			<section id="main">
+				<div class="container">
+					<div id="content">
+						<!-- Post -->
+						<article class="box post">
+							<header>
+								<h2>Summon Engine</h2>
+							</header>
+							<p class="centered">Since graduating from <a href="https://thegameassembly.com/">The Game Assembly</a> I've worked on my own game engine in my spare time. Here's some things I've implemented in it.</p>
+							
+							<!--<div class="divide"></div>
+							<div class="left" id="Utilities">
+								<h3>Containers and other Utilities</h3>
+								<p>My engine uses a variety of custom containers and other utilities I make from scratch instead of using libraries like STL.
+								It's mostly just because I like making them, but everything comes from me needing the functionality at some point.<br/>
+								<a href="Utilities">Read more</a></p>
+							</div>-->
+							
+							<div class="divide"></div>
+							<div class="left" id="WidgetSystem">
+								<h3>Widget System</h3>
+								<p>I created a widget system from the ground up for the engine, with several iterations made for either improving the performance or the workflow.<br/>
+								<a href="WidgetSystem">Read more</a></p>
+							</div>
+							<div class="video right">
+								<video controls>
+									<source src="videos/WidgetSystem.mp4" type="video/mp4">
+									Your browser does not support .mp4 HTML5 video.
+								</video>
+							</div>
+							
+							<div class="divide"></div>
+							<div class="left" id="Rendering">
+								<h3>Rendering</h3>
+								<p>As part of a course at The Game Assembly I made a 3D rendering engine from scratch using DirectX 11.
+								I continued to work on it after the course ended since it's something I enjoy and like to learn more of, which then turned into my own game engine.<br/>
+								Outside the course I've added a lot of features as well as restructured the entire engine to work with multiple rendering APIs.
+								The restructure was needed as I wanted to add DirectX 12 support and it turned out great, allowing me to have an incomplete DX12 implementation without preventing me from testing other stuff in DX11 mode.<br/>
+								A couple examples of rendering features I've added are font rendering and instanced animations.
+								I also started adding OpenVR support, but never took the time to finish it.
+								I came as far as rendering the world correctly, even rotating works fine until you move your head.</p>
+							</div>
+							<div class="video right">
+								<video controls>
+									<source src="videos/Engine.mp4" type="video/mp4">
+									Your browser does not support .mp4 HTML5 video.
+								</video>
+							</div>
+							
+							<div class="divide"></div>
+							<div class="left" id="ModelEditor">
+								<h3>Model Editor</h3>
+								<p>As part of the editor to my engine I wanted to have a way to create low poly terrain, so that I'd be able to both place objects and modify the terrain without using external tools.
+								To do that I basically created a simple model editor where you can manipulate vertices, edges and faces by using tools like move, rotate and scale, as well as some more complicated ones like extrude, combine vertex and split.</br>
+								It took about a month to implement in my spare time and was one of the most satisfying things I've worked on, as it was a fun challenge and I was able to get a complete understanding of how to manipulate vertex and index buffers.</p>
+							</div>
+							<div class="video right">
+								<video controls>
+									<source src="videos/SummonEngineTerrainEditor.mp4" type="video/mp4">
+									Your browser does not support .mp4 HTML5 video.
+								</video>
+							</div>
+							
+							<div class="divide"></div>
+							<div class="left" id="InputSystem">
+								<h3>Input System</h3>
+								<p>While working on <a href="Bloodhunt">Bloodhunt</a> I became fustrated with how UE4 handled input and started thinking about how I would structure an input system to solve the issues I was having.
+								Some years later I felt like improving the input code in my engine, and ended up creating the input system I had been thinking about for so long over a summer vacation.<br/>
+								I ended up creating multiple new useful <a href="Utilities">containers</a> for this, as well as making a big refactor on the underlying input handler that reads key presses and such from the OS.
+								There were also surprisingly many edge-cases that popped up, but they were quite satisfying to fix on both the design side and the code side as this system is pretty tightly designed.</p>
+							</div>
+							<div class="right">
+								<div class="left" style="text-align: center;">
+									<span class="image"><img class="myImg" src="images/InputMapper.png" alt="Input Mapper" /></span>
+									Input Mapper
+								</div>
+								<div class="right" style="text-align: center;">
+									<span class="image"><img class="myImg" src="images/InputMapperTypes.png" alt="Input Mapper Types" /></span>
+									Input Mapper Types
+								</div>
+							</div>
+						</article>
+					</div>
+				</div>
+			</section>
+
+			<!-- Footer -->
+			<section id="footer">
+				<div id="copyright" class="container">
+					<ul class="links">
+						<li>&copy; Robin Ericsson</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</div>
+			</section>
+		</div>
+
+		<!-- Scripts -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.dropotron.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+		<script src="assets/js/modal.js"></script>
+	</body>
+</html>

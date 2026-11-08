@@ -1,0 +1,151 @@
+<!DOCTYPE HTML>
+<!--
+	Strongly Typed by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Robin Ericsson - Exoborne</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="icon" href="images/icon.png">
+	</head>
+	<body class="no-sidebar is-preload">
+		<div id="page-wrapper">
+			<!-- The Modal -->
+			<div id="myModal" class="modal">
+				<img class="modal-content" id="img01">
+				<div id="caption"></div>
+			</div>
+			
+			<!-- Header -->
+			<section id="header">
+				<div class="container">
+					<!-- Nav -->
+					<nav id="nav">
+						<ul>
+							<li>
+								<a href="#" class="icon fa-gamepad"><span>Games</span></a>
+								<ul>
+									<li><a href="Bloodhunt">Bloodhunt</a></li>
+									<li><a href="Exoborne">Exoborne</a></li>
+								</ul>
+							</li>
+							<li><a class="icon fa-cog" href="Engine"><span>Engine</span></a></li>
+							<li>
+								<a href="#" class="icon fa-graduation-cap"><span>School Projects</span></a>
+								<ul>
+									<li><a href="ComponentSystem">Component System</a></li>
+									<li><a href="AbilitySystem">Ability System</a></li>
+									<li><a href="Ohtili">Spite - Ohtili's Ascension</a></li>
+									<li><a href="Aphelion">Aphelion</a></li>
+									<li><a href="Swarm">Swarm</a></li>
+									<li><a href="Witchcat">The Witchcat Adventure</a></li>
+									<li><a href="FairyEscape">The Fairy Escape</a></li>
+									<li><a href="Mayday">Mayday</a></li>
+								</ul>
+							</li>
+							<li><a class="icon fa-plus-circle" href="Other"><span>Other</span></a></li>
+							<li><a class="icon fa-user" href="About"><span>About Me</span></a></li>
+						</ul>
+					</nav>
+					<!-- Logo -->
+					<h1 id="logo"><a href="./">Robin Ericsson</a></h1>
+					<p>Gameplay/System Programmer</p>
+				</div>
+			</section>
+
+			<!-- Main -->
+			<section id="main">
+				<div class="container">
+					<div id="content">
+						<!-- Post -->
+						<article class="box post">
+							<header>
+								<h2>Exoborne</h2>
+							</header>
+							<p class="centered">A third-person shooter extraction game with a futuristic tech flair.</p>
+							
+							<div class="divide"></div>
+							<div class="left" id="Introduction">
+								<h3>Introduction</h3>
+								<p>I started working on this project a bit into production since it was being worked on in parallel with <a href="Bloodhunt">Bloodhunt</a>, and I stayed on that project even after most developers had moved over to this one.
+								However similar to Bloodhunt, I joined as some larger changes were being made to the game and could join a fairly new feature team.<br/>
+								On this project my role has been even more specialized than in the last project, staying in one feature team and having a more specific role.
+								I joined the feature team as an intermediate system engineer while the other programmers on the team were junior 3C engineers, which has made me learn a lot about how to manage and foster junior members of a team.</p>
+							</div>
+							<div class="right">
+								<span class="image"><img class="myImg" src="images/Exoborne.png" alt="" /></span>
+							</div>
+							
+							<div class="divide"></div>
+							<div class="right" id="Exos">
+								<h3>Exos</h3>
+								<p>The feature team I've worked in on this project is the "Exo" team. We handle most things that has to do with the exos, which mostly include the abilities, mods and the exo itself.
+								Since I had worked on <a href="Bloodhunt#Abilities">the ability system in Bloodhunt</a> for multiple years, it was an obvious fit for me.<br/>
+								The exo system I've since been responsible for went through some major changes in direction early on which led me to make sure the system stays as flexible as possible.
+								This has saved a lot of time over the development of the project.</p>
+							</div>
+							<div class="left">
+								<span class="image"><img class="myImg" src="images/ExoborneExo.png" alt="" /></span>
+							</div>
+							
+							<div class="divide"></div>
+							<div style="margin: 2%;" id="AbilitySystem">
+								<h3>The Gameplay Ability System</h3>
+								<p>For Exoborne we're using unreals Gameplay Ability System (GAS) instead of the custom made ability system we had for Bloodhunt.
+								The reason for this was to enable designers to make abilities themselves in unreal blueprints, which they couldn't really do in the Bloodhunt ability system since it wasn't designed to have its abilities be made entierly in blueprints.<br/>
+								After working with this system for multiple years I've found both a lot of pros and cons with it. The <b>pros</b> are that it's easy to prototype with as it's very generic and most times easy to make the networking work well if you don't need to do anything special.
+								The <b>cons</b> are that if you need to do something the system wasn't designed for, like giving an ability an amount of charges depending on it's level or simply just using replicated properties, things will get complicated very quickly and you often need to take a deep dive into the plugin code.<br/>
+								The <b>thoughest issue</b> with GAS I've had to fix was because some abilities we have need to be replicated, which it turned out introduces a risk of the ability being replicated too slow and causing the replicated array of abilities to replicate with an empty entry.
+								That means the system will tell the ability's default object that it has been given to the player instead of the instantiated object, which later will be replicated and never told it has been given to the player.
+								This caused a crash due to basic info not being set in the system and was not easy to even figure out where it came from, much less to actually find a fix for.
+								Since it's an inherit issue with how the core design of the ability system, I ended up fixing it by making the system wait with replicating the array entry until the client confirms that the ability is replicated,
+								which unfortunately both adds network calls and delays the ability initialization.<br/>
+								Since then, Epic has deprecated a lot of network functionality for abilities with warnings in UE5.5, notably replicated properties, without giving an alternate means of getting the same functionality (RPCs don't work for all the same cases), which is quite annoying.
+								The deprecations also wouldn't prevent the crash from happening so I doubt it was done due to that, but this does make me feel like they don't have a good grasp of their own system.</p>
+							</div>
+							
+							<div class="divide"></div>
+							<div class="left" id="Other">
+								<h3>Other systems</h3>
+								<p>Some other systems I worked on include:
+								<ul>
+									<li>Player tracks system using custom replication graph</li>
+									<li>Stat systems</li>
+									<li>Custom cone overlap calculation for damage</li>
+									<li>Scanning system (revealing objects)</li>
+									<li>Predictive projectile system for generic replicated projectile actors</li>
+								</ul>
+								</p>
+							</div>
+							<div class="right">
+								<span class="image"><img class="myImg" src="images/ExoborneAction.png" alt="" /></span>
+							</div>
+						</article>
+					</div>
+				</div>
+			</section>
+
+			<!-- Footer -->
+			<section id="footer">
+				<div id="copyright" class="container">
+					<ul class="links">
+						<li>&copy; Robin Ericsson</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</div>
+			</section>
+		</div>
+
+		<!-- Scripts -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.dropotron.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+		<script src="assets/js/modal.js"></script>
+	</body>
+</html>

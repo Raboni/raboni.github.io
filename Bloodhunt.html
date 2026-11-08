@@ -1,0 +1,161 @@
+<!DOCTYPE HTML>
+<!--
+	Strongly Typed by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Robin Ericsson - Bloodhunt</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="icon" href="images/icon.png">
+	</head>
+	<body class="no-sidebar is-preload">
+		<div id="page-wrapper">
+			<!-- The Modal -->
+			<div id="myModal" class="modal">
+				<img class="modal-content" id="img01">
+				<div id="caption"></div>
+			</div>
+			
+			<!-- Header -->
+			<section id="header">
+				<div class="container">
+					<!-- Nav -->
+					<nav id="nav">
+						<ul>
+							<li>
+								<a href="#" class="icon fa-gamepad"><span>Games</span></a>
+								<ul>
+									<li><a href="Bloodhunt">Bloodhunt</a></li>
+									<li><a href="Exoborne">Exoborne</a></li>
+								</ul>
+							</li>
+							<li><a class="icon fa-cog" href="Engine"><span>Engine</span></a></li>
+							<li>
+								<a href="#" class="icon fa-graduation-cap"><span>School Projects</span></a>
+								<ul>
+									<li><a href="ComponentSystem">Component System</a></li>
+									<li><a href="AbilitySystem">Ability System</a></li>
+									<li><a href="Ohtili">Spite - Ohtili's Ascension</a></li>
+									<li><a href="Aphelion">Aphelion</a></li>
+									<li><a href="Swarm">Swarm</a></li>
+									<li><a href="Witchcat">The Witchcat Adventure</a></li>
+									<li><a href="FairyEscape">The Fairy Escape</a></li>
+									<li><a href="Mayday">Mayday</a></li>
+								</ul>
+							</li>
+							<li><a class="icon fa-plus-circle" href="Other"><span>Other</span></a></li>
+							<li><a class="icon fa-user" href="About"><span>About Me</span></a></li>
+						</ul>
+					</nav>
+					<!-- Logo -->
+					<h1 id="logo"><a href="./">Robin Ericsson</a></h1>
+					<p>Gameplay/System Programmer</p>
+				</div>
+			</section>
+
+			<!-- Main -->
+			<section id="main">
+				<div class="container">
+					<div id="content">
+						<!-- Post -->
+						<article class="box post">
+							<header>
+								<h2>Vampire the Masquerade: Bloodhunt</h2>
+							</header>
+							<p class="centered">The first AAA game I worked on. A third-person shooter battle royal with vampires.</p>
+							
+							<div class="divide"></div>
+							<div class="left" id="Introduction">
+								<h3>Introduction</h3>
+								<p>I started working on Bloodhunt at <a href="https://www.sharkmob.com/">Sharkmob</a> as an intern in 2019 (got hired a year later) and worked on that project until 2023 when further development on it stopped.
+								This was my first work experience in the games industry and I look back at it very fondly.<br/>
+								During that time I worked on most parts of the game and experienced three stages of development for a live service game:
+								Pre launch iterative development with many big changes to the game, post launch seasonal development with hotfixes and increased pace, and ramp down wrap up development with a very small team and many things we wanted to do.<br/>
+								It goes without saying that I learned a lot during this time in all aspects of AAA game development.</p>
+							</div>
+							<div class="right">
+								<span class="image"><img class="myImg" src="images/Bloodhunt.png" alt="" /></span>
+							</div>
+							
+							<div class="divide"></div>
+							<div class="right" id="Abilities">
+								<h3>Abilities</h3>
+								<p>The thing I worked on most and later were responsible for, was the abilities and the ability system.<br/>
+								When I joined all abilities in the game were about to be reworked and I was one of the two programmers that were assigned to it.
+								I had to work a lot with the other disciplines (designers, VFX artists, etc.), and that has been what I like most about it.
+								Collaberating to find the best way to create the ability, spit-balling ideas, and just helping others get what they need to add their amazing work to the ability.<br/>
+								The ability system we used was made in-house. We didn't use GAS (unreals built-in ability system) since that was not yet available when this project started.
+								In the <a href="Exoborne">next project</a> we did switch, however now with experience working on both I must say I prefer the one we made for Bloodhunt.</p>
+							</div>
+							<div class="left">
+								<div class="left" style="text-align: center;">
+									<span class="image"><img class="myImg" src="images/SewerBomb.gif" alt="Sewer Bomb" /></span>
+									Sewer Bomb
+								</div>
+								<div class="left" style="text-align: center;">
+									<span class="image"><img class="myImg" src="images/FleshOfMarblePrePatch.gif" alt="Flesh of Marble (pre patch)" /></span>
+									Flesh of Marble (pre patch)
+								</div>
+								<div class="left" style="text-align: center;">
+									<span class="image"><img class="myImg" src="images/BloodLanceExecution.gif" alt="Blood Lance" /></span>
+									Blood Lance
+								</div>
+							</div>
+							
+							<div class="divide"></div>
+							<div id="Learnings">
+								<h3>Learnings</h3>
+								<p>I learned a lot working on this project and could write several pages about it, but since that's a bit too much to ask for someone to read I'm just gonna highlight a few things:
+								<ul>
+									<li>Debugging different types of bugs is probably the thing I've learned most about, like what to do when the bug is very rare, very deep in the systems/engine, or only shows up in shipping builds.
+									It has also impacted how I design systems, always trying to avoid using patterns that have made debugging difficult for me in the past.</li>
+									<li>Since it's a online multiplayer game I obviously learned a lot about making a networked game, especially on the gameplay feature side of things.
+									The numerous problems to avoid, what the client can use to cheat, as well as how it's all set up with the server and backend, are things I've learned to always keep in mind when working on networked parts of the code, and when it specifically isn't.</li>
+									<li>I had worked with source control before this, but as this was a AAA project it was on a completely different scale and I got to learn how to use it properly, and then more efficiently.
+									The importance of safe submits and how to work with multiple branches are among the most notable things.</li>
+								</ul>
+								Some other noteworthy features I learned a lot working on/with are settings, character customization, and localization.</p>
+							</div>
+							
+							<div class="divide"></div>
+							<div class="right" id="Core Vampire Crew">
+								<h3>Core Vampire Crew</h3>
+								<p>This is what we called the team that stayed on Bloodhunt when most of the studio moved over to focus on the <a href="Exoborne">next project</a>.
+								The team was relatively small and I was one of three programmers on it, which gave it a bit of a indie feeling as we were left mostly to our own devices.<br/>
+								We ended up achieving a lot with the time we had (a year), finishing up things started before the focus shift, adding great new features, and fixing a lot of bugs.
+								I started out with finishing up the code work for the new Tremere archetype, before moving on to a big feature we had to cut, and then doing quality of life features and bug fixes.<br/>
+								It was a great experience and I had a great time up until the last week, when it of course got very stressful for everyone as we wanted to get in some final great fixes and leave the game in as good of a state as possible.<br/>
+								In the end I'm very proud over my contributions to the game and how it turned out.</p>
+							</div>
+							<div class="left">
+								<span class="image"><img class="myImg" src="images/BloodhuntTremere.png" alt="" /></span>
+							</div>
+						</article>
+					</div>
+				</div>
+			</section>
+
+			<!-- Footer -->
+			<section id="footer">
+				<div id="copyright" class="container">
+					<ul class="links">
+						<li>&copy; Robin Ericsson</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</div>
+			</section>
+		</div>
+
+		<!-- Scripts -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.dropotron.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+		<script src="assets/js/modal.js"></script>
+	</body>
+</html>
